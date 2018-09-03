@@ -11,14 +11,17 @@ class UsersController < ApplicationController
       flash[:notice] = "Account created successfully!"
       session[:user_id] = @user.id
       redirect_to user_path(@user)
-      else
+    else
       flash.now.alert = "Couldn't create account. Please make sure you are using a valid email and password and try again."
       render :new
-      end
+    end
   end
 
   def show
     @user = User.find(params[:id])
+    if @user.role == 'admin'
+      redirect_to admin_homepage_index_path
+    end
   end
 
   private
