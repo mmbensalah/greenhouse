@@ -5,11 +5,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-      if @user.save
-       session[:user_id] = @user.id
-       redirect_to user_path(@user)
+    @user.username.downcase!
+
+    if @user.save
+      flash[:notice] = "Account created successfully!"
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
       else
-       render :new
+      flash.now.alert = "Couldn't create account. Please make sure you are using a valid email and password and try again."
+      render :new
       end
   end
 

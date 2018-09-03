@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe 'Visitor can' do
-  it 'create a sign in' do
+  it 'create a sign in account' do
+    
     visit '/'
 
     click_on "Sign Up To Be A User"
@@ -13,6 +14,5 @@ describe 'Visitor can' do
     click_on "Create User"
 
     expect(page).to have_content("Welcome, user_1!")
-
   end
 end
