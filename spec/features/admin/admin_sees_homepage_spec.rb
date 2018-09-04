@@ -18,6 +18,7 @@ describe "User visits admin homepage" do
       expect(current_path).to eq(plants_path)
       expect(page).to have_content('List of all plants')
       expect(page).to have_content(plant.name)
+      expect(page).to have_link(plant.name)
     end
   end
   # context 'as default user' do
