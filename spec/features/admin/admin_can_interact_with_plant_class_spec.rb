@@ -1,10 +1,9 @@
 require 'rails_helper'
 
-describe 'Admin can create new plant' do
+describe 'Admin can interact with plant class' do
   context 'as an admin' do
     it 'admin can add new plant' do
       admin = User.create(username: 'penelope', password: '1234', role: 1)
-
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       name = 'cacti'

@@ -1,4 +1,5 @@
 class Admin::PlantsController < Admin::BaseController
+
   def new
     @plant = Plant.new
   end
