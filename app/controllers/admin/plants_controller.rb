@@ -10,8 +10,25 @@ class Admin::PlantsController < Admin::BaseController
 
   def destroy
     @plant = Plant.find(params[:id])
-    @plant.destroy
+    if @plant.destroy
+      flash[:success] = "#{@plant.name} deleted."
+    end
     redirect_to plants_path
+  end
+
+  def edit
+    @plant = Plant.find(params[:id])
+  end
+
+  def update
+    @plant = Plant.find(params[:id])
+    @plant.update(plant_params)
+    if @plant.save
+      flash[:success] = "#{@plant.name} updated!"
+      redirect_to plant_path(@plant)
+    else
+      render :edit
+    end
   end
 
   private

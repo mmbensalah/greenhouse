@@ -1,0 +1,24 @@
+<h1>Edit<%= @plant.name %></h1>
+
+<%= form_for [:admin, @plant] do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :variety %>
+  <%= f.text_field :variety %>
+
+  <%= f.label :sell_quantity %>
+  <%= f.text_field :sell_quantity %>
+
+  <%= f.label :stock_plants %>
+  <%= f.text_field :stock_plants %>
+
+  <%= f.label :zone %>
+  <%= f.text_field :zone %>
+
+  <%= f.label :shipping %>
+  <%= f.text_field :shipping %>
+
+<%= f.submit "Submit changes" %>
+<% end %>

@@ -54,5 +54,41 @@ describe 'Admin can create new plant' do
       expect(page).to_not have_content(plant.zone)
       expect(page).to_not have_content(plant.shipping)
     end
+    it 'admin can edit an existing plant' do
+      admin = User.create(username: 'penelope', password: '1234', role: 1)
+      plant = Plant.create(name: 'OP12', variety: 'cactus', sell_quantity: 10, stock_plants: 1, zone: 'A4', shipping: 'roots')
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      name = 'cacti'
+      variety = 'hardy'
+      sell_quantity = 10
+      stock_plants = 1
+      shipping = 'roots'
+      zone = 'A1'
+
+      visit plant_path(plant)
+      click_on 'Edit plant'
+
+      expect(current_path).to eq(edit_admin_plant_path(plant))
+
+      fill_in :plant_name, with: name
+      fill_in :plant_variety, with: variety
+      fill_in :plant_sell_quantity, with: sell_quantity
+      fill_in :plant_stock_plants, with: stock_plants
+      fill_in :plant_zone, with: zone
+      fill_in :plant_shipping, with: shipping
+
+      click_on 'Submit changes'
+
+      expect(current_path).to eq(plant_path(plant))
+
+      expect(page).to have_content(name)
+      expect(page).to have_content(variety)
+      expect(page).to have_content(sell_quantity)
+      expect(page).to have_content(stock_plants)
+      expect(page).to have_content(zone)
+      expect(page).to have_content(shipping)
+    end
   end
 end

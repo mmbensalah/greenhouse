@@ -10,9 +10,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
 	 resources :homepage, only: [:index]
-   resources :plants, only: [:new, :create, :destroy]
+   resources :plants, only: [:new, :create, :destroy, :edit, :update]
 	end
 
-  resources :plants, except: [:new, :create, :destroy]
+  resources :plants, except: [:new, :create, :destroy, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
