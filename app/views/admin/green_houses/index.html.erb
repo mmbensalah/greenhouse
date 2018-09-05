@@ -1,4 +1,9 @@
-<% @green_houses.each do |green_house| %>
-  <%= green_house.name %>
-  <%= green_house.location %>
-<% end %>
+<h1>All Greenhouses</h1>
+
+<ul><% @green_houses.each do |gh| %>
+  <li><strong><%= link_to gh.name, admin_green_house_path(gh) %></strong></li>
+  <li>Location: <%= gh.location %></li>
+  <li>Current number of plants: <%= gh.plant_count %>
+      <% end %>
+  </li>
+</ul>

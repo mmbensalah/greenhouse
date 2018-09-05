@@ -9,4 +9,7 @@ describe Plant, type: :model do
     it{ should validate_presence_of :shipping}
     it{ should validate_presence_of :zone}
   end
+  describe 'relationships' do
+    it {should belong_to :green_house }
+  end
 end
