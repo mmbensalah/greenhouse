@@ -6,6 +6,8 @@
   <li><%= @plant.stock_plants %></li>
   <li><%= @plant.zone %></li>
   <li><%= @plant.shipping %></li>
+  <li><%= image_tag(@plant.image) %></li>
 </ul>
+
 <%= link_to 'Edit plant', edit_admin_plant_path(@plant) %>
 <%= link_to 'Delete plant', admin_plant_path(@plant), method: :delete %>
