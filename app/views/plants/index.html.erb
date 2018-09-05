@@ -1,7 +1,5 @@
 <h1>List of all plants</h1>
 
-<%= link_to 'Add new plant', new_admin_plant_path %>
-
 <% @plants.each do |plant| %>
   <%= link_to plant.name, plant_path(plant) %>
   <%= link_to 'Edit plant', edit_admin_plant_path(plant) %>

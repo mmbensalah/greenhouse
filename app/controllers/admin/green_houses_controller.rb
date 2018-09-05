@@ -1,6 +1,7 @@
 class Admin::GreenHousesController < Admin::BaseController
 
   def index
+    @green_houses = GreenHouse.all
   end
 
   def new
