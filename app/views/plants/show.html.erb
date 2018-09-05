@@ -1,0 +1,11 @@
+<h1><%= @plant.name %></h1>
+
+<ul>
+  <li><%= @plant.variety %></li>
+  <li><%= @plant.sell_quantity %></li>
+  <li><%= @plant.stock_plants %></li>
+  <li><%= @plant.zone %></li>
+  <li><%= @plant.shipping %></li>
+</ul>
+<%= link_to 'Edit plant', edit_admin_plant_path(@plant) %>
+<%= link_to 'Delete plant', admin_plant_path(@plant), method: :delete %>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'pages/secret'
 
   root 'welcome#index'
 
@@ -7,13 +6,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
-
   resources :users, only: [:new, :create, :show]
 
   namespace :admin do
 	 resources :homepage, only: [:index]
+   resources :plants, only: [:new, :create, :destroy, :edit, :update]
 	end
 
-
+  resources :plants, except: [:new, :create, :destroy, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

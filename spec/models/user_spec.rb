@@ -27,4 +27,5 @@ describe User, type: :model do
       expect(user.default?).to be_truthy
     end
   end
+
 end
