@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe 'Visitor can' do
   it 'create a sign in account' do
-    
+
     visit '/'
 
-    click_on "Sign Up To Be A User"
+    click_on "Sign Up"
     expect(current_path).to eq new_user_path
 
     fill_in :user_username, with: 'user_1'

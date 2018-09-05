@@ -5,6 +5,9 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
 
+  <%= f.label :GreenHouse %>
+  <%= f.collection_select(:green_house_id, @green_houses, :id, :name) %>
+
   <%= f.label :variety %>
   <%= f.text_field :variety %>
 
@@ -19,6 +22,9 @@
 
   <%= f.label :shipping %>
   <%= f.text_field :shipping %>
+
+  <%= f.label :image %>
+  <%= f.text_field :image %>
 
 <%= f.submit "Submit changes" %>
 <% end %>

@@ -2,10 +2,12 @@ class Admin::PlantsController < Admin::BaseController
 
   def new
     @plant = Plant.new
+    @green_houses = GreenHouse.all
   end
 
   def create
     @plant = Plant.create(plant_params)
+    @green_house = GreenHouse.find(plant_params[:green_house_id])
     redirect_to plant_path(@plant)
   end
 
@@ -19,6 +21,7 @@ class Admin::PlantsController < Admin::BaseController
 
   def edit
     @plant = Plant.find(params[:id])
+    @green_houses = GreenHouse.all
   end
 
   def update
@@ -36,6 +39,6 @@ class Admin::PlantsController < Admin::BaseController
 
   def plant_params
     params.require(:plant).permit(:name, :variety, :sell_quantity,
-                                  :stock_plants, :zone, :shipping)
+                                  :stock_plants, :zone, :shipping, :green_house_id)
   end
 end

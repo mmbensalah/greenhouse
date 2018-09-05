@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180905151008) do
+ActiveRecord::Schema.define(version: 20180905163344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20180905151008) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.bigint "green_house_id"
+    t.index ["green_house_id"], name: "index_plants_on_green_house_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +44,5 @@ ActiveRecord::Schema.define(version: 20180905151008) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "plants", "green_houses"
 end

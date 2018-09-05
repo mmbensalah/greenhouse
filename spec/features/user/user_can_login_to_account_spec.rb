@@ -5,7 +5,7 @@ describe 'User can' do
     visit '/'
     user = User.create(username: 'fonzi4', password: 'test', role: 'admin')
 
-    click_on 'I already have an account'
+    click_on 'Log In'
 
     expect(current_path).to eq(login_path)
 
