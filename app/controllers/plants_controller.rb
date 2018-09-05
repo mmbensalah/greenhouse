@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   def index
-    @plants = Plant.all
+    @plants = Plant.ordered_plants
   end
 
   def show

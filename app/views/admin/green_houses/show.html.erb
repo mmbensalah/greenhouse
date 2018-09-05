@@ -1,0 +1,6 @@
+<h1><%= @green_house.name %></h1>
+
+<p>Location: <%= @green_house.location %></p>
+<% @green_house.plants.ordered_plants.each do |plant| %>
+  <%= plant.name %>
+<% end %>
