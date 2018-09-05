@@ -7,6 +7,8 @@ class CreatePlants < ActiveRecord::Migration[5.1]
       t.integer :stock_plants
       t.string :zone
       t.string :shipping
+
+      t.timestamps
     end
   end
 end

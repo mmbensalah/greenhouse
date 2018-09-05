@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :admin do
 	 resources :homepage, only: [:index]
    resources :plants, only: [:new, :create, :destroy, :edit, :update]
+   resources :green_houses
 	end
 
   resources :plants, except: [:new, :create, :destroy, :edit, :update]
