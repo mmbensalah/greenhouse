@@ -22,7 +22,7 @@
       </button>
 
       <% if current_admin? %>
-        <%= link_to 'Home', root_path %> | <%= link_to 'View all plants', plants_path %> | <%= link_to 'Add plant', new_admin_plant_path %> | <%= link_to 'Log Out', logout_path, method: :delete %>
+        <%= link_to 'Home', root_path %> | <%= link_to 'View all plants', plants_path %> | <%= link_to 'Add plant', new_admin_plant_path %> | <%= link_to 'All greenhouses', admin_green_houses_path %> | <%= link_to 'Add greenhouse', new_admin_green_house_path %> | <%= link_to 'Log Out', logout_path, method: :delete %>
       <% elsif current_user %>
         <%= "Logged in as #{current_user.username}" %> | <%= link_to 'Home', root_path %> | <%= link_to 'View all plants', plants_path %> | <%= link_to 'Log Out', logout_path, method: :delete %>
       <% else %>

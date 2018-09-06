@@ -1,3 +1,5 @@
 <h1>Welcome, <%= current_user.username %>!</h1>
-<%= link_to "Admin Homepage", admin_homepage_index_path %>
-<%= link_to "Log out", logout_path %>
+<% @favorites.each do |favorite| %>
+  <%= favorite.plant.name %>
+  <%= image_tag(favorite.plant.image, size: "300x300") %>
+<% end %>

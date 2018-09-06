@@ -19,9 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if @user.role == 'admin'
-      redirect_to admin_homepage_index_path
-    end
+    @favorites = Favorite.where(user_id: params[:id])
   end
 
   private
