@@ -2,6 +2,14 @@
 
 <% @plants.each do |plant| %>
   <%= link_to plant.name, plant_path(plant) %>
-  <%= link_to 'Edit plant', edit_admin_plant_path(plant) %>
-  <%= link_to 'Delete plant', admin_plant_path(plant), method: :delete %>
+  <% if current_user %>
+    <%= form_for current_user.favorites.new, url: user_favorites_path(current_user) do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :plant_id, value: plant.id %>
+    <%= f.submit 'Add plant to favorites' %>
+  <% end %>
+<% end %>
+
+  <!-- <%= link_to 'Edit plant', edit_admin_plant_path(plant) %>
+  <%= link_to 'Delete plant', admin_plant_path(plant), method: :delete %> -->
  <% end %>

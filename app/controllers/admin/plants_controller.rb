@@ -1,5 +1,9 @@
 class Admin::PlantsController < Admin::BaseController
 
+  def index
+    @plants = Plant.all
+  end
+
   def new
     @plant = Plant.new
     @green_houses = GreenHouse.all

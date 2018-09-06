@@ -1,0 +1,11 @@
+<h1>List of all plants</h1>
+
+<% @plants.each do |plant| %>
+  <%= link_to plant.name, plant_path(plant) %>
+  <%= link_to 'Edit Plant', edit_admin_plant_path(plant) %>
+  <%= link_to 'Delete Plant', admin_plant_path(plant), method: :delete %>
+<% end %>
+
+  <!-- <%= link_to 'Edit plant', edit_admin_plant_path(plant) %>
+  <%= link_to 'Delete plant', admin_plant_path(plant), method: :delete %> -->
+ <% end %>
