@@ -9,3 +9,37 @@
   <!-- <%= link_to 'Edit plant', edit_admin_plant_path(plant) %>
   <%= link_to 'Delete plant', admin_plant_path(plant), method: :delete %> -->
  <% end %>
+
+ <% @plants.each do |plant| %>
+
+
+ <main class="container">
+   <div class="card-columns item-columns">
+     <% @plants.each do |plant| %>
+       <div class="card">
+         <img class="card-img-top" src="/<%= plant.image %>">
+         <div class="card-body">
+           <p class="card-text"><%= link_to 'Edit Plant', edit_admin_plant_path(plant) %></p>
+           <p class="card-text"><%= link_to 'Delete Plant', admin_plant_path(plant), method: :delete %></p>
+         </div>
+       </div>
+     <% end %>
+   </div>
+ </main>
+
+ <p class="h1 text-center" style="color: #654C4F">All Available Plants</p>
+
+  <main class="container">
+    <div class="card-columns item-columns">
+      <% @plants.each do |plant| %>
+        <div class="card">
+          <img class="card-img-top" src= "<%= plant.image %>, size:"300x300">
+          <div class="card-body">
+            <h6 class="card-title h6"><%= link_to plant.name, plant_path(plant) %></h6>
+            <p class="card-text"><%= link_to 'Edit Plant', edit_admin_plant_path(plant) %></p>
+            <p class="card-text"><%= link_to 'Delete Plant', admin_plant_path(plant), method: :delete %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </main>

@@ -1,6 +1,16 @@
-<h1><%= @green_house.name %></h1>
+<p class="h1 text-center" style="color: #654C4F"><%= @green_house.name %></p>
+<p class="h1 text-center" style="color: #654C4F">Location: <%= @green_house.location %></p>
 
-<p>Location: <%= @green_house.location %></p>
-<% @green_house.plants.ordered_plants.each do |plant| %>
-  <%= plant.name %>
-<% end %>
+
+<main class="container">
+  <div class="card-columns item-columns">
+    <% @green_house.plants.ordered_plants.each do |plant| %>
+      <div class="card">
+        <img class="card-img-top" src= "<%= plant.image %>", size:"300x300">
+        <div class="card-body">
+          <h6 class="card-title h6"><%= link_to plant.name, plant_path(plant) %></h6>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>

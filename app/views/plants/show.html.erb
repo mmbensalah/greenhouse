@@ -1,13 +1,18 @@
-<h1><%= @plant.name %></h1>
+<p class="h1 text-center" style="color: #654C4F"><%= @plant.name %></p>
 
-<ul>
-  <li><%= @plant.variety %></li>
-  <li><%= @plant.sell_quantity %></li>
-  <li><%= @plant.stock_plants %></li>
-  <li><%= @plant.zone %></li>
-  <li><%= @plant.shipping %></li>
-  <li><%= image_tag(@plant.image) %></li>
-</ul>
-
-<%= link_to 'Edit plant', edit_admin_plant_path(@plant) %>
-<%= link_to 'Delete plant', admin_plant_path(@plant), method: :delete %>
+<main class="container">
+  <div class="card-columns item-columns">
+      <div class="card">
+        <img class="card-img-top" src= "<%= @plant.image %>", size:"300x300">
+        <div class="card-body">
+          <h6 class="card-title h6">Variety: <%= @plant.variety %></h6>
+          <h6 class="card-title h6">Quantity: <%= @plant.sell_quantity %></h6>
+          <h6 class="card-title h6">Stock plants: <%= @plant.stock_plants %></h6>
+          <h6 class="card-title h6"><%= @plant.zone %></h6>
+          <h6 class="card-title h6">Shipping requirements: <%= @plant.shipping %></h6>
+          <p class="card-text"><%= link_to 'Edit Plant', edit_admin_plant_path(@plant) %></p>
+          <p class="card-text"><%= link_to 'Delete Plant', admin_plant_path(@plant), method: :delete %></p>
+        </div>
+      </div>
+  </div>
+</main>
